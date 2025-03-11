@@ -13,9 +13,15 @@ import java.util.UUID;
 @RequestMapping("/products")
 public class ProductRestController {
 
-    private CommandGateway commandGateway;
+    private final Environment environment;
+
+    private final CommandGateway commandGateway;
+
     @Autowired
-    private Environment environment;
+    public ProductRestController(Environment environment, CommandGateway commandGateway) {
+       this.environment = environment;
+       this.commandGateway = commandGateway;
+    }
 
     @GetMapping("/service/status")
     public String status() {
