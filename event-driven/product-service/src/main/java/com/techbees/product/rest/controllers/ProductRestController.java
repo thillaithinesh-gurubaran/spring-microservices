@@ -47,7 +47,7 @@ public class ProductRestController {
         return value;
     }
 
-    @PutMapping
+    /*@PutMapping
     public String updateProduct() {
         return "Http PUT handled";
     }
@@ -60,5 +60,5 @@ public class ProductRestController {
     @DeleteMapping
     public String deleteProduct() {
         return "Http DELETE handled";
-    }
+    }*/
 }

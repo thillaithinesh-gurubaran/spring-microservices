@@ -1,4 +1,4 @@
-package com.techbees.product.query;
+package com.techbees.product.events.handlers;
 
 import com.techbees.product.entity.ProductEntity;
 import com.techbees.product.events.ProductCreatedEvent;

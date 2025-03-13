@@ -1,18 +1,17 @@
-package com.techbees.product.model;
+package com.techbees.product.query.rest.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
-public class Product {
+public class ProductModel {
+
+    private String productId;
 
     private String title;
 
     private BigDecimal price;
 
     private Integer quantity;
-
 }
