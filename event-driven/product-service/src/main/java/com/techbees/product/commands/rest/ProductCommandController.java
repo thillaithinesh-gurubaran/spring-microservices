@@ -1,4 +1,4 @@
-package com.techbees.product.rest.controllers;
+package com.techbees.product.commands.rest;
 
 import com.techbees.product.commands.CreateProductCommand;
 import com.techbees.product.model.Product;
@@ -7,18 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
-public class ProductRestController {
+public class ProductCommandController {
 
     private final Environment environment;
 
     private final CommandGateway commandGateway;
 
     @Autowired
-    public ProductRestController(Environment environment, CommandGateway commandGateway) {
+    public ProductCommandController(Environment environment, CommandGateway commandGateway) {
        this.environment = environment;
        this.commandGateway = commandGateway;
     }
@@ -29,7 +30,7 @@ public class ProductRestController {
     }
 
     @PostMapping
-    public String createProduct(@RequestBody Product product) {
+    public String createProduct(@Valid @RequestBody Product product) {
 
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
                 .price(product.getPrice())

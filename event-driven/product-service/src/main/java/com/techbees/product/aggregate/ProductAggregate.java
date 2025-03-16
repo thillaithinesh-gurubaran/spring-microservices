@@ -28,13 +28,13 @@ public class ProductAggregate {
     }
 
     @CommandHandler
-    public ProductAggregate(CreateProductCommand createProductCommand) throws IllegalAccessException {
+    public ProductAggregate(CreateProductCommand createProductCommand) {
         // Validate create product command
         if(createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalAccessException("Price cannot be less or equal than Zero");
+            throw new IllegalStateException("Price cannot be less or equal than Zero");
         }
         if(createProductCommand.getTitle() == null || createProductCommand.getTitle().isBlank()) {
-            throw new IllegalAccessException("Title cannot be empty");
+            throw new IllegalStateException("Title cannot be empty");
         }
 
         // Event

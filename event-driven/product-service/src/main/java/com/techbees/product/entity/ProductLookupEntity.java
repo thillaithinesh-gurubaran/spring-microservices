@@ -1,27 +1,28 @@
 package com.techbees.product.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.math.BigDecimal;
 
-@Entity
-@Table(name="products")
+/*
+ * Set based consistency
+ */
 @Data
-public class ProductEntity implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "productLookup")
+public class ProductLookupEntity implements Serializable {
 
     @Id
-    @Column(unique = true)
     private String productId;
 
     @Column(unique = true)
     private String title;
-
-    private BigDecimal price;
-
-    private Integer quantity;
 }
