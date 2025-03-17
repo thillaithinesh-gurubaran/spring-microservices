@@ -20,8 +20,8 @@ public class ProductCommandController {
 
     @Autowired
     public ProductCommandController(Environment environment, CommandGateway commandGateway) {
-       this.environment = environment;
-       this.commandGateway = commandGateway;
+        this.environment = environment;
+        this.commandGateway = commandGateway;
     }
 
     @GetMapping("/service/status")
@@ -38,12 +38,12 @@ public class ProductCommandController {
                 .title(product.getTitle())
                 .productId(UUID.randomUUID().toString()).build();
 
-        String value;
-        try {
+        String value = commandGateway.sendAndWait(createProductCommand);
+       /* try {
             value = commandGateway.sendAndWait(createProductCommand);
         }catch (Exception e) {
             value = e.getLocalizedMessage();
-        }
+        }*/
 
         return value;
     }
